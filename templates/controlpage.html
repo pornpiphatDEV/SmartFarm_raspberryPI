@@ -1,0 +1,300 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-xl-12 col-md-12 mb-4">
+        <div class="card border-black  py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-break text-uppercase mb-1">ความชื้นโดยรอบ</div>
+                        <div class="row">
+                            <div class="col">
+                                <div id="humidity" class="h5 mb-0 font-weight-bold text-info">0 </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-break text-uppercase mb-1">อุณหภมูมิโดยรอบ</div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="h5 mb-0 font-weight-bold text-info" id="temperature">0 </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-break text-uppercase mb-1">ค่าความเข้มของแสง</div>
+                        <div class="row">
+                            <div class="col">
+                                <div id="lux" class="h5 mb-0 font-weight-bold text-info">0 </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-break text-uppercase mb-1">ค่าความชื้นในดินแปรงที่ 1
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class=" mb-0 font-weight-bold text-info" id="soilmoisture1">0 </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-break text-uppercase mb-1">ค่าความชื้นในดินแปรงที่ 2
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="h5 mb-0 font-weight-bold text-info" id="soilmoisture2">0 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class=" font-weight-bold text-break text-uppercase mb-3">โหมดการทำงาน</div>
+                        <div class="row">
+                            <div class="col">
+                                <div class=" mb-0 font-weight-bold ">
+                                    <div class="switch-box">
+                                        <input class="switch" type="checkbox" id="toggle">
+                                        <div class="toggle-input"></div>
+                                    </div>
+                                </div>
+                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card border-black  py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <img src="{{ url_for('static', filename='img/fan.png')}}" alt="" srcset="" width="40">
+                    </div>
+                    <div class="col-auto">
+                        <div class=" font-weight-bold text-break text-uppercase mb-3">การทำงานของพัดลม</div>
+                        <div class="row">
+                            <div class="col">
+                                <div class=" mb-0 font-weight-bold ">
+                                    <div class="switch-box">
+                                        <input class="switch" type="checkbox" id="toggle">
+                                        <div class="toggle-input"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <!-- <div class="h5 mb-0 font-weight-bold text-gray-800"> </div> -->
+                                <span class="dotstatus mt-1" id="output_fan"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card border-black  py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <img src="{{ url_for('static', filename='img/water-pump.png')}}" alt="" srcset="" width="40">
+
+
+                    </div>
+                    <div class="col-auto">
+                        <div class=" font-weight-bold text-break text-uppercase mb-3">การทำงานปั่มน้ำ 1</div>
+                        <div class="row">
+                            <div class="col">
+                                <div class=" mb-0 font-weight-bold ">
+                                    <div class="switch-box">
+                                        <input class="switch" type="checkbox" id="toggle">
+                                        <div class="toggle-input"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <!-- <div class="h5 mb-0 font-weight-bold text-gray-800"> </div> -->
+                                <span class="dotstatus mt-1" id="waterpump1"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card border-black  py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <img src="{{ url_for('static', filename='img/water-pump.png')}}" alt="" srcset="" width="40">
+
+                    </div>
+                    <div class="col-auto">
+                        <div class=" font-weight-bold text-break text-uppercase mb-3">การทำงานปั่มน้ำ 2</div>
+                        <div class="row">
+                            <div class="col">
+                                <div class=" mb-0 font-weight-bold ">
+                                    <div class="switch-box">
+                                        <input class="switch" type="checkbox" id="toggle">
+                                        <div class="toggle-input"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <!-- <div class="h5 mb-0 font-weight-bold text-gray-800"> </div> -->
+                                <span class="dotstatus mt-1" id="waterpump2"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card border-black  py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+
+
+                        <img src="{{ url_for('static', filename='img/blinds.png')}}" alt="" srcset="" width="40">
+
+                    </div>
+                    <div class="col-auto">
+                        <div class="font-weight-bold text-break text-uppercase mb-3">ม่านรับแสง</div>
+                        <div class="row">
+                            <div class="col">
+                                <div class=" mb-0 font-weight-bold ">
+                                    <div class="switch-box">
+                                        <input class="switch" type="checkbox" id="toggle">
+                                        <div class="toggle-input"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <!-- <div class="h5 mb-0 font-weight-bold text-gray-800"> </div> -->
+                                <span class="dotstatus mt-1" id="curtain"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
+
+
+
+{% block script %}
+
+<script>
+
+    const myInterval = setInterval(myTimer, 1000);
+
+    function myTimer() {
+        const date = new Date();
+
+        document.getElementById("mytimer").innerHTML = "Grow better of a day " + date.toLocaleDateString() + " : " + date.toLocaleTimeString();
+    }
+
+
+    var socket = io('http://localhost:5000/');
+    socket.on('connect', function () {
+        console.log('connect');
+        socket.emit('my event', { data: 'I\'m connected!' });
+        socket.emit('message', 'test')
+    });
+
+
+    socket.on("dht22_senser", (data) => {
+        document.getElementById('humidity').innerHTML = data.humidity;
+        document.getElementById('temperature').innerHTML = data.temperature;
+
+
+        if (data.output_fan === 1) {
+            document.getElementById('output_fan').style.backgroundColor = "green";
+        } else {
+            document.getElementById('output_fan').style.backgroundColor = "red";
+        }
+    });
+
+    socket.on("lightsenser", (data) => {
+        // document.getElementById('lux').innerHTML = data.lux;
+        if (data.curtain === 1) {
+            document.getElementById('curtain').style.backgroundColor = "green";
+        } else {
+            document.getElementById('curtain').style.backgroundColor = "red";
+        }
+    });
+
+
+    socket.on("soilmoisturesenser", (data) => {
+
+        document.getElementById('soilmoisture1').innerHTML = data.soilmoisture1;
+        document.getElementById('soilmoisture2').innerHTML = data.soilmoisture2;
+
+        if (data.waterpump1 === 1) {
+            document.getElementById('waterpump1').style.backgroundColor = "green";
+        } else {
+            document.getElementById('waterpump1').style.backgroundColor = "red";
+        }
+
+
+        if (data.waterpump2 === 1) {
+            document.getElementById('waterpump2').style.backgroundColor = "green";
+        } else {
+            document.getElementById('waterpump2').style.backgroundColor = "red";
+        }
+
+
+
+
+    });
+
+
+
+
+    $('.toggle').click(function (e) {
+
+
+        console.log(e);
+        e.preventDefault();
+
+        console.log(e.preventDefault());// The flicker is a codepen thing
+        $(this).toggleClass('toggle-on');
+    });
+</script>
+
+
+
+
+{% endblock %}

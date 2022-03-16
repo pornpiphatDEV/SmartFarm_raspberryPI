@@ -1,0 +1,99 @@
+body {
+  background-color: #31a46c;
+}
+
+.rcorners1 {
+  border-radius: 25px;
+  padding: 20px;
+}
+
+.border-black {
+  border: 3px solid black;
+}
+
+.dotstatus {
+  height: 30px;
+  width: 30px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.switch-box {
+  width: 80px;
+  height: 40px;
+  position: relative;
+  font-family: Arial;
+}
+
+.switch-box input.switch {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  opacity: 0;
+}
+.switch-box .toggle-input {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  border: solid 1px #ddd;
+  border-radius: 20px;
+  font-size: 12px;
+  box-sizing: border-box;
+  color: #cfd8e9;
+}
+.switch-box .toggle-input:before {
+  position: absolute;
+  content: "OFF";
+  height: 40px;
+  line-height: 40px;
+  right: 10px;
+}
+.switch-box .toggle-input:after {
+  position: absolute;
+  content: "";
+  height: 30px;
+  width: 30px;
+  background: #9d9d9b;
+  border-radius: 50%;
+  left: 6px;
+  top: 4px;
+  transition: all 0.5s ease;
+}
+
+.switch-box input.switch[type="checkbox"]:checked ~ .toggle-input:before {
+  position: absolute;
+  content: "ON";
+  height: 40px;
+  line-height: 40px;
+  right: 50px;
+}
+.switch-box input.switch[type="checkbox"]:checked ~ .toggle-input {
+  background: #d4d6d4;
+  color: #fff;
+  transition: all 0.5s ease;
+  border: solid 1px #59cc5d;
+}
+.switch-box input.switch[type="checkbox"]:checked ~ .toggle-input:after {
+  background: #00f545;
+  left: 43px;
+  transition: all 0.5s ease;
+}
+
+
+
+
+
+/* ************************************************************************************************ */
+
+
+
+
+

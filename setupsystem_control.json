@@ -1,0 +1,13 @@
+{
+  "luxvalue_min": 0,
+  "luxvalue_max": 80,
+
+  "humidityvalue_min": 0,
+  "humidityvalue_max": 50,
+
+  "soilmoisture1value_min": 0,
+  "soilmoisture1value_max": 75,
+
+  "soilmoisture2value_min": 0,
+  "soilmoisture2value_max": 65
+}

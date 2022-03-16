@@ -1,0 +1,648 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card mb-3">
+    <div class="card-header text-white bg-success">
+        ตั้งค่าการทำงาของพัดลม ให้ทำงานอยู่ในช่วง
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6 mb-2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="input-group">
+                            <span class=" mt-2 mr-3"> ค่าเริ่มต้น :</span>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default btn-number bg-danger"
+                                    onclick="humiditymin_reduce()">
+                                    <span class="text-white">-</span>
+                                </button>
+                            </span>
+                            <input type="text" class="form-control input-number" value="{{data['humidityvalue_min']}}"
+                                min="1" id="humidity_min" max="100">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default btn-number bg-success"
+                                    onclick="humiditymin_increase()">
+                                    <span class="text-white">+</span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="input-group">
+                            <span class=" mt-2 mr-3"> ค่าสูงสุด :</span>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default btn-number bg-danger"
+                                    onclick="humiditymin_reduce2()">
+                                    <span class="text-white">-</span>
+                                </button>
+                            </span>
+                            <input type="text" class="form-control input-number" value="{{data['humidityvalue_max']}}"
+                                min="1" id="humidity_max" max="100">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default btn-number bg-success"
+                                    onclick="humiditymin_increase2()">
+                                    <span class="text-white">+</span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="card mb-3">
+    <div class="card-header text-white bg-success">
+        ตั้งค่าการทำงาของม่านรับแสง ให้ทำงานอยู่ในช่วง
+    </div>
+    <div class="card-body ">
+        <div class="row">
+            <div class="col-lg-6 mb-2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="input-group">
+                            <span class=" mt-2 mr-3"> ค่าเริ่มต้น :</span>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default btn-number bg-danger"
+                                    onclick="luxmin_reduce()">
+                                    <span class="text-white">-</span>
+                                </button>
+                            </span>
+                            <input type="text" class="form-control input-number" value="{{data['']}}" min="1"
+                                id="lux_min" max="100">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default btn-number bg-success"
+                                    onclick="luxmin_increase()">
+                                    <span class="text-white">+</span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="input-group">
+                            <span class=" mt-2 mr-3"> ค่าสูงสุด :</span>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default btn-number bg-danger"
+                                    onclick="luxmin_reduce2()">
+                                    <span class="text-white">-</span>
+                                </button>
+                            </span>
+                            <input type="text" class="form-control input-number" value="{{data['luxvalue_max']}}"
+                                min="1" id="lux_max" max="100">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default btn-number bg-success"
+                                    onclick="luxmin_increase2()">
+                                    <!-- afssafsaf -->
+                                    <span class="text-white">+</span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="card mb-3">
+    <div class="card-header text-white bg-success">
+        ตั้งค่าการทำงาของปั่นน้ำ1 ให้ทำงานอยู่ในช่วง
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6 mb-2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="input-group">
+                            <span class=" mt-2 mr-3"> ค่าเริ่มต้น :</span>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default btn-number bg-danger"
+                                    onclick="soilmoisture1min_reduce()">
+                                    <span class="text-white">-</span>
+                                </button>
+                            </span>
+                            <input type="text" class="form-control input-number"
+                                value="{{data['soilmoisture1value_min']}}" min="1" id="soilmoisture1_min" max="100">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default btn-number bg-success"
+                                    onclick="soilmoisture1min_increase()">
+                                    <span class="text-white">+</span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="input-group">
+                            <span class=" mt-2 mr-3"> ค่าสูงสุด :</span>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default btn-number bg-danger"
+                                    onclick="soilmoisture1min_reduce2()">
+                                    <span class="text-white">-</span>
+                                </button>
+                            </span>
+                            <input type="text" class="form-control input-number"
+                                value="{{data['soilmoisture1value_max']}}" min="1" id="soilmoisture1_max" max="100">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default btn-number bg-success"
+                                    onclick="soilmoisture1min_increase2()">
+                                    <!-- afssafsaf -->
+                                    <span class="text-white">+</span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="card mb-3">
+    <div class="card-header text-white bg-success">
+        ตั้งค่าการทำงาของปั่นน้ำ2 ให้ทำงานอยู่ในช่วง
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6 mb-2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="input-group">
+                            <span class=" mt-2 mr-3"> ค่าเริ่มต้น :</span>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default btn-number bg-danger"
+                                    onclick="soilmoisture2min_reduce()">
+                                    <span class="text-white">-</span>
+                                </button>
+                            </span>
+                            <input type="text" class="form-control input-number"
+                                value="{{data['soilmoisture2value_min']}}" min="1" id="soilmoisture2_min" max="100">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default btn-number bg-success"
+                                    onclick="soilmoisture2min_increase()">
+                                    <span class="text-white">+</span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="input-group">
+                            <span class=" mt-2 mr-3"> ค่าสูงสุด :</span>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default btn-number bg-danger"
+                                    onclick="soilmoisture2min_reduce2()">
+                                    <span class="text-white">-</span>
+                                </button>
+                            </span>
+                            <input type="text" class="form-control input-number"
+                                value="{{data['soilmoisture2value_max']}}" min="1" id="soilmoisture2_max" max="100">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default btn-number bg-success"
+                                    onclick="soilmoisture2min_increase2()">
+                                    <!-- afssafsaf -->
+                                    <span class="text-white">+</span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<button type="button" class="btn btn-success" onclick="setupcontrol()">ตั้งค่าการทำงาระบบ</button>
+<button type="button" class="btn btn-danger">ยกเลิก</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+{% block script %}
+
+<script>
+
+    const myInterval = setInterval(myTimer, 1000);
+
+
+    let humidity_min = Number(document.getElementById("humidity_min").value);
+    let humidity_max = Number(document.getElementById("humidity_max").value);
+
+    let lux_min = Number(document.getElementById("lux_min").value);
+    let lux_max = Number(document.getElementById("lux_max").value);
+
+
+    let soilmoisture1_min = Number(document.getElementById("soilmoisture1_min").value);
+    let soilmoisture1_max = Number(document.getElementById("soilmoisture1_max").value);
+
+
+    let soilmoisture2_min = Number(document.getElementById("soilmoisture2_min").value);
+    let soilmoisture2_max = Number(document.getElementById("soilmoisture2_max").value);
+
+    function myTimer() {
+        const date = new Date();
+
+        document.getElementById("mytimer").innerHTML = "Grow better of a day " + date.toLocaleDateString() + " : " + date.toLocaleTimeString();
+    }
+
+
+
+    // seting humidity max min ****************************************
+    function humiditymin_increase() {
+        humidity_min = Number(document.getElementById("humidity_min").value);
+        humidity_max = Number(document.getElementById("humidity_max").value);
+
+
+
+        // console.log(humidity_min);
+        if (humidity_min >= humidity_max) {
+            alert("ไม่สามารถเพื่อค่ามากกว่าค่า สูงสุดได้");
+            document.getElementById("humidity_min").value = humidity_min - 1;
+        } else {
+            document.getElementById("humidity_min").value = humidity_min + 1;
+            if (humidity_min >= 100) {
+                humidity_min = 100
+                document.getElementById("humidity_min").value = humidity_min;
+            }
+        }
+
+    }
+
+    function humiditymin_reduce() {
+
+        humidity_min = Number(document.getElementById("humidity_min").value);
+
+        document.getElementById("humidity_min").value = humidity_min - 1;
+
+
+
+
+        if (humidity_min <= 0) {
+            humidity_min = 0
+            document.getElementById("humidity_min").value = humidity_min;
+        }
+    }
+
+
+
+    function humiditymin_increase2() {
+        humidity_max = Number(document.getElementById("humidity_max").value);
+
+
+        console.log(humidity_max);
+        document.getElementById("humidity_max").value = humidity_max + 1;
+        if (humidity_max >= 100) {
+            humidity_max = 100
+            document.getElementById("humidity_max").value = humidity_max;
+        }
+    }
+
+    function humiditymin_reduce2() {
+        humidity_max = Number(document.getElementById("humidity_max").value);
+        humidity_min = Number(document.getElementById("humidity_min").value);
+
+        if (humidity_max <= humidity_min) {
+            alert("ไม่สามารถเพื่อค่าน้อยกว่า ค่าเริ่มต้นได้");
+            document.getElementById("humidity_max").value = humidity_max + 1;
+        } else {
+            document.getElementById("humidity_max").value = humidity_max - 1;
+            if (humidity_max <= 0) {
+                humidity_max = 0
+                document.getElementById("humidity_max").value = humidity_max;
+            }
+        }
+
+    }
+
+
+    // *****************************************************************
+
+
+
+
+
+
+
+    // seting lux max min ****************************************
+    function luxmin_increase() {
+        lux_min = Number(document.getElementById("lux_min").value);
+        lux_max = Number(document.getElementById("lux_max").value);
+
+
+
+        // console.log(lux_min);
+        if (lux_min >= lux_max) {
+            alert("ไม่สามารถเพื่อค่ามากกว่าค่า สูงสุดได้");
+            document.getElementById("lux_min").value = lux_min - 1;
+        } else {
+            document.getElementById("lux_min").value = lux_min + 1;
+            if (lux_min >= 100) {
+                lux_min = 100
+                document.getElementById("lux_min").value = lux_min;
+            }
+        }
+
+    }
+
+    function luxmin_reduce() {
+
+        lux_min = Number(document.getElementById("lux_min").value);
+
+        document.getElementById("lux_min").value = lux_min - 1;
+
+
+
+
+        if (lux_min <= 0) {
+            lux_min = 0
+            document.getElementById("lux_min").value = lux_min;
+        }
+    }
+
+
+
+    function luxmin_increase2() {
+        lux_max = Number(document.getElementById("lux_max").value);
+
+
+
+        document.getElementById("lux_max").value = lux_max + 1;
+        if (lux_max >= 100) {
+            lux_max = 100
+            document.getElementById("lux_max").value = lux_max;
+        }
+    }
+
+    function luxmin_reduce2() {
+        lux_max = Number(document.getElementById("lux_max").value);
+        lux_min = Number(document.getElementById("lux_min").value);
+
+        if (lux_max <= lux_min) {
+            alert("ไม่สามารถเพื่อค่าน้อยกว่า ค่าเริ่มต้นได้");
+            document.getElementById("lux_max").value = lux_max + 1;
+        } else {
+            document.getElementById("lux_max").value = lux_max - 1;
+            if (lux_max <= 0) {
+                lux_max = 0
+                document.getElementById("lux_max").value = lux_max;
+            }
+        }
+
+    }
+
+
+    // *****************************************************************
+
+
+
+
+    // soilmoisture2
+
+
+    // soilmoisture1  max min ****************************************
+    function soilmoisture1min_increase() {
+        soilmoisture1_min = Number(document.getElementById("soilmoisture1_min").value);
+        soilmoisture1_max = Number(document.getElementById("soilmoisture1_max").value);
+
+
+
+        // console.log(soilmoisture1_min);
+        if (soilmoisture1_min >= soilmoisture1_max) {
+            alert("ไม่สามารถเพื่อค่ามากกว่าค่า สูงสุดได้");
+            document.getElementById("soilmoisture1_min").value = soilmoisture1_min - 1;
+        } else {
+            document.getElementById("soilmoisture1_min").value = soilmoisture1_min + 1;
+            if (soilmoisture1_min >= 100) {
+                soilmoisture1_min = 100
+                document.getElementById("soilmoisture1_min").value = soilmoisture1_min;
+            }
+        }
+
+    }
+
+    function soilmoisture1min_reduce() {
+
+        soilmoisture1_min = Number(document.getElementById("soilmoisture1_min").value);
+
+        document.getElementById("soilmoisture1_min").value = soilmoisture1_min - 1;
+
+
+
+
+        if (soilmoisture1_min <= 0) {
+            soilmoisture1_min = 0
+            document.getElementById("soilmoisture1_min").value = soilmoisture1_min;
+        }
+    }
+
+
+
+    function soilmoisture1min_increase2() {
+        soilmoisture1_max = Number(document.getElementById("soilmoisture1_max").value);
+
+
+        console.log(soilmoisture1_max);
+        document.getElementById("soilmoisture1_max").value = soilmoisture1_max + 1;
+        if (soilmoisture1_max >= 100) {
+            soilmoisture1_max = 100
+            document.getElementById("soilmoisture1_max").value = soilmoisture1_max;
+        }
+    }
+
+    function soilmoisture1min_reduce2() {
+        soilmoisture1_max = Number(document.getElementById("soilmoisture1_max").value);
+        soilmoisture1_min = Number(document.getElementById("soilmoisture1_min").value);
+
+        if (soilmoisture1_max <= soilmoisture1_min) {
+            alert("ไม่สามารถเพื่อค่าน้อยกว่า ค่าเริ่มต้นได้");
+            document.getElementById("soilmoisture1_max").value = soilmoisture1_max + 1;
+        } else {
+            document.getElementById("soilmoisture1_max").value = soilmoisture1_max - 1;
+            if (soilmoisture1_max <= 0) {
+                soilmoisture1_max = 0
+                document.getElementById("soilmoisture1_max").value = soilmoisture1_max;
+            }
+        }
+
+    }
+
+
+    // *****************************************************************
+
+
+
+
+    // soilmoisture2  max min ****************************************
+    function soilmoisture2min_increase() {
+        soilmoisture2_min = Number(document.getElementById("soilmoisture2_min").value);
+        soilmoisture2_max = Number(document.getElementById("soilmoisture2_max").value);
+
+
+
+        // console.log(soilmoisture2_min);
+        if (soilmoisture2_min >= soilmoisture2_max) {
+            alert("ไม่สามารถเพื่อค่ามากกว่าค่า สูงสุดได้");
+            document.getElementById("soilmoisture2_min").value = soilmoisture2_min - 1;
+        } else {
+            document.getElementById("soilmoisture2_min").value = soilmoisture2_min + 1;
+            if (soilmoisture2_min >= 100) {
+                soilmoisture2_min = 100
+                document.getElementById("soilmoisture2_min").value = soilmoisture2_min;
+            }
+        }
+
+    }
+
+    function soilmoisture2min_reduce() {
+
+        soilmoisture2_min = Number(document.getElementById("soilmoisture2_min").value);
+
+        document.getElementById("soilmoisture2_min").value = soilmoisture2_min - 1;
+
+
+
+
+        if (soilmoisture2_min <= 0) {
+            soilmoisture2_min = 0
+            document.getElementById("soilmoisture2_min").value = soilmoisture2_min;
+        }
+    }
+
+
+
+    function soilmoisture2min_increase2() {
+        soilmoisture2_max = Number(document.getElementById("soilmoisture2_max").value);
+
+
+        console.log(soilmoisture2_max);
+        document.getElementById("soilmoisture2_max").value = soilmoisture2_max + 1;
+        if (soilmoisture2_max >= 100) {
+            soilmoisture2_max = 100
+            document.getElementById("soilmoisture2_max").value = soilmoisture2_max;
+        }
+    }
+
+    function soilmoisture2min_reduce2() {
+        soilmoisture2_max = Number(document.getElementById("soilmoisture2_max").value);
+        soilmoisture2_min = Number(document.getElementById("soilmoisture2_min").value);
+
+        if (soilmoisture2_max <= soilmoisture2_min) {
+            alert("ไม่สามารถเพื่อค่าน้อยกว่า ค่าเริ่มต้นได้");
+            document.getElementById("soilmoisture2_max").value = soilmoisture2_max + 1;
+        } else {
+            document.getElementById("soilmoisture2_max").value = soilmoisture2_max - 1;
+            if (soilmoisture2_max <= 0) {
+                soilmoisture2_max = 0
+                document.getElementById("soilmoisture2_max").value = soilmoisture2_max;
+            }
+        }
+    }
+
+
+
+    function setupcontrol() {
+        let confirmAction = confirm("คุณต้องการจะตั้งค่าการทำงานของระบบ หรือไม่");
+        if (confirmAction) {
+
+            humidity_min = Number(document.getElementById("humidity_min").value);
+            humidity_max = Number(document.getElementById("humidity_max").value);
+            lux_min = Number(document.getElementById("lux_min").value);
+            lux_max = Number(document.getElementById("lux_max").value);
+            soilmoisture1_min = Number(document.getElementById("soilmoisture1_min").value);
+            soilmoisture1_max = Number(document.getElementById("soilmoisture1_max").value);
+            soilmoisture2_min = Number(document.getElementById("soilmoisture2_min").value);
+            soilmoisture2_max = Number(document.getElementById("soilmoisture2_max").value);
+
+            console.log(humidity_min);
+            console.log(humidity_max);
+            console.log(lux_min);
+            console.log(lux_max);
+            console.log(soilmoisture1_min);
+            console.log(soilmoisture1_max);
+            console.log(soilmoisture2_min);
+            console.log(soilmoisture2_max);
+        }
+
+
+
+
+    }
+
+
+  // soilmoisture2  max min ****************************************
+</script>
+
+
+
+
+{% endblock %}
